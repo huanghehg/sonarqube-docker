@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+    postgres:
+        image: "postgres:12.1"
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_USER: postgres
+        volumes:
+            - ./docker-entrypoint-initdb.d/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+            - ./data:/var/lib/postgresql/data
+    sonarqube:
+        image: "sonarqube:7.9.2-community"
+        ports:
+            - "9000:9000"
+        environment:
+            - sonar.jdbc.username=docker
+            - sonar.jdbc.password=docker
+            - sonar.jdbc.url=jdbc:postgresql://postgres/docker
+        volumes:
+            - ./sonar/conf:/opt/sonarqube/conf
+            - ./sonar/extensions:/opt/sonarqube/extensions
+            - ./sonar/logs:/opt/sonarqube/logs
+            - ./sonar/data:/opt/sonarqube/data
+
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8080:8080
