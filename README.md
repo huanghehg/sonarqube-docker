@@ -27,7 +27,7 @@ database: docker
 5. 执行`chmod -R ugo+w sonar`
 6. 在`docker-compose.yml`路径下执行 `docker-compose up -d`
 
-此时访问`http://${sonarqube对应的docker所分配的ip}:9000`，便可打开sonarqube页面
+此时访问`http://${ip}:9000`，便可打开sonarqube页面
 
 
 
