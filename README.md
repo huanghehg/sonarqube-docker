@@ -23,7 +23,7 @@ database: docker
 1. 安装docker
 2. 安装docker-compose(一般默认安装了)
 3. clone当前仓库到本地
-4. `mkdir dbdata`
+4. `cd sonarqube-docker && mkdir dbdata`
 5. 执行`chmod -R ugo+w sonar`
 6. 在`docker-compose.yml`路径下执行 `docker-compose up -d`
 
