@@ -24,8 +24,3 @@ services:
             - ./sonar/logs:/opt/sonarqube/logs
             - ./sonar/data:/opt/sonarqube/data
 
-    adminer:
-        image: adminer
-        restart: always
-        ports:
-            - 8080:8080
