@@ -30,5 +30,5 @@ database: docker
 此时访问`http://${ip}:9000`，便可打开sonarqube页面
 
 
-
-
+### 问题
+如果新增文件或文件夹一定要确认访问权限 `ls -la`
