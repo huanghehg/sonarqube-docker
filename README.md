@@ -31,4 +31,20 @@ database: docker
 
 
 ### 问题
-如果新增文件或文件夹一定要确认访问权限 `ls -la`
+1. 如果新增文件或文件夹一定要确认访问权限 `ls -la`
+2. `high disk watermark [90%] exceeded on`
+    - 在配置中更新`sonar.properties`
+    - [ES 内存错误时更改配置](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-cluster.html#disk-based-shard-allocation)
+```
+    docker exec -it ty-sonarqube_sonarqube_1 curl -X PUT "localhost:9200/_cluster/settings?pretty" -H 'Content-Type: application/json' -d'
+    {
+      "transient": {
+        "cluster.routing.allocation.disk.watermark.low": "20gb",
+        "cluster.routing.allocation.disk.watermark.high": "10gb",
+        "cluster.routing.allocation.disk.watermark.flood_stage": "5gb",
+        "cluster.info.update.interval": "1m"
+      }
+    }'
+```
+
+
