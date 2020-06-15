@@ -33,6 +33,7 @@ database: docker
 ### 问题
 1. 如果新增文件或文件夹一定要确认访问权限 `ls -la`
 2. `high disk watermark [90%] exceeded on`
+    - [参考文章](https://rtfm.co.ua/en/sonarqube-solving-unrecoverable-indexation-failures-and-elasticsearch-disk-watermark-exceeded-errors/)
     - 在配置中更新`sonar.properties`
     - [ES 内存错误时更改配置](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-cluster.html#disk-based-shard-allocation)
 ```
