@@ -4,6 +4,8 @@
 
 使用`docker`一键配置`sonarqube`，数据库为`postgres`
 
+[介绍文章](https://huanghehg.github.io/2019/12/12/sonarqubeAndOclint/)
+
 版本：
 
 `sonarqube: 7.9.2-community`
